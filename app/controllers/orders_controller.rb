@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :update, :destroy]
 
+  # Add a before_action to authenticate all requests.
+  # Move this to subclassed controllers if you only
+  # want to authenticate certain methods.
+  before_action :authenticate
+
   # GET /orders
   def index
     @orders = Order.all
