@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   # POST /orders
   def create
   
-    binding.pry
+    #binding.pry
     Rails.logger.debug("debug::"+ order_params.inspect)
     @order = Order.new(order_params)
 
@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def order_params
       #params.require(:order).permit!
-      binding.pry
+      #binding.pry
       params.require(:order).permit(:location, :status, items_attributes: [ :id, :name, :quantity, :milk, :size, :order_id,:_destroy])
     end
 end
